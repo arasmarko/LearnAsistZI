@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 	get '/goal/', :to => 'goal#index', :as => 'goals'
 	get '/goal/new', :to => 'goal#new', :as => 'new_goal'
 	get '/goal/new-note', :to => 'goal#new_note', :as => 'new_note'
-	get '/goal/create_goal', :to => 'goal#create_goal', :as => 'create_goal'
+	post '/goal/create_goal', :to => 'goal#create_goal', :as => 'create_goal'
 	get '/goal/get-progress', :to => 'goal#get_progress', :as => 'goal_get_progress'
 	get '/goal/(:id)', :to => 'goal#goal', :as => 'goal'
 	get '/goal/delete/(:id)', :to => 'goal#delete', :as => 'delete_goal'

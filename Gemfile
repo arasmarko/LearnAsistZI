@@ -34,8 +34,6 @@ gem 'bootstrap_sb_admin_base_v2'
 
 gem 'devise'
 
-gem 'pg'
-
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

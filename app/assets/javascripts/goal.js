@@ -124,9 +124,12 @@ $(document).on('click', '.goal__card__step__link__delete', function (e) {
 
 
 $(document).on('click', '.js-add-note', function (e) {
+	id = $(this).data('step-id');
+
 	$.ajax({
 		type: 'GET',
 		url: '/goal/new-note',
+		data: {step_id: id}
 		}).success(function(data) {
 			openModal();
 			$('.custom-modal').append(data.html_content);

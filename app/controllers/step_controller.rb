@@ -64,6 +64,8 @@ class StepController < ApplicationController
 		
 	end
 
+	
+
 	private
 
 	def create_post_params

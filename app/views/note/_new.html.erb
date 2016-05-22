@@ -1,0 +1,16 @@
+<div class="add__goal__modal">
+	<div class="add__goal__modal__header">New Note for <%= step.name %></div>
+	<div class="add__goal__modal__body">
+	<%= form_for :note, url: create_note_path(:step_id => step.id), html: {class: "nifty_form"} do |f| %>
+		<div class="add__goal__modal__body__goal">
+			<p>Note name</p>
+			<%= f.text_field :name %>
+		</div>
+		<div class="add__goal__modal__body__description">
+			<p>Note</p>
+			<%= f.text_field :note %>
+		</div>
+		<%= f.submit "Create" , :class => 'submit btn btn-success' %>
+	<% end %>
+	</div>
+</div>

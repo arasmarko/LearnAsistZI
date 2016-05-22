@@ -31,7 +31,7 @@
 									<span>Notes</span>
 									<span class="glyphicon glyphicon-list"></span>
 								<% end %>
-								<div class="goal__card__step__link js-add-note">Add note +</div>
+								<div class="goal__card__step__link js-add-note" data-step-id="<%= step.id %>">Add note +</div>
 							</div>
 							<div class="goal__card__step__to-dos">
 								<% step.to_dos.each do |todo| %>

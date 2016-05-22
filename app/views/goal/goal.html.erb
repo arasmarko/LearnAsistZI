@@ -1,0 +1,37 @@
+<div class="page-wrapper">
+	<div class="goal__heading">
+		<h1><%= @goal.name %></h1>
+		<div class="js-add_step btn btn-success"  data-goal-id="<%= @goal.id %>">Add step</div>
+	</div>
+	<div class="goal__content steps">
+		
+		<div class="goal__content__steps">
+			<% if @goal.steps.blank? %>
+				<div class="goal__content__step">You don't have any steps planed for this goal</div>
+			<% else %>
+				<% @goal.steps.each do |step| %>
+					<div class="goal__content__step">
+						<div class="goal__content__step__header">
+							<%= link_to(step.name, step_path(:id => step.id) ) %>
+							<% if false %>
+								<div class="progress <%= step.id %> cls<%= step.id %>" id="progress"></div>
+							<% end %>
+							<div class="progress_bar">
+								<div class="progress_bar_done <%= step.id %>" id="step-<%= step.id %>"></div>
+							</div>
+						</div>
+						
+						<div class="goal__content__step__todos">
+							<% step.to_dos.each do |todo| %>
+								<div class="goal__content__step__todo">
+									<span data-todo-id="<%= todo.id %>" <% if todo.status == '1' %>style="text-decoration: line-through;"<% end %>><%= todo.name %></span>
+									<input type="checkbox" data-todo-id="<%= todo.id %>" class="js-todo-check" <% if todo.status == '1' %>checked<% end %>>
+								</div>
+							<%end%>
+						</div>
+					</div>
+				<%end%>
+			<% end %>
+		</div>
+	</div>
+</div

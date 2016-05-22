@@ -1,0 +1,7 @@
+<div class="add__goal__modal">
+	<%= form_for :goal, url: create_goal_path, html: {class: "nifty_form"} do |f| %>
+		<p>Please insert your new goal name</p>
+		<%= f.text_field :name, :placeholder => 'Goal name' %>
+		<%= f.submit "Create" , :class => 'submit' %>
+	<% end %>
+</div>

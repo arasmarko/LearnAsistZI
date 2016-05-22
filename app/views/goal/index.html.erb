@@ -1,0 +1,46 @@
+<div class="page-wrapper">
+	<div class="goal__heading">
+		<h1>List of your goals</h1>
+		<div class="js-add_goal goal__content_add btn btn-success">Add new goal +</div>
+	</div>
+	<div class="goal__content">
+		<% @goals.each do |goal| %>
+			<div class="goal__card">
+				<div class="goal__card__header">
+					<%= link_to( goal.name, goal_path(goal.id), :class => 'goal__card__link') %>
+					<%= link_to( "delete goal", delete_goal_path(goal.id), :class => 'goal__card__delete btn btn-danger') %>
+				</div>
+				<div class="goal__card__steps">
+					<div class="goal__card__add__new">
+						<div class="btn btn-default btn-xs js-add-step__from-goal">Add step</div>
+					</div>
+					<div class="goal__card__step__new goal__card__step">
+						<input type="text" placeholder="step name" class="step_name" data-goalid=<%= goal.id %>>
+						<a class="step_added goal__card__step__link"></a>
+						<span class="js-post-add-step__from-goal">dodaj</span>
+						<span class="close-add-step__from-goal">X</span>
+						<div class="goal__card__step__to-dos">
+								<div class="goal__card__step__to-do">You don't have any steps specified for this goal</div>
+						</div>
+					</div>
+					<% goal.steps.order(:created_at => 'DESC').each do |step| %>
+						<div class="goal__card__step">
+							<%= link_to(step.name, step_path(:id => step.id), :class => 'goal__card__step__link') %>
+							<div class="goal__card__step__to-dos">
+								<% step.to_dos.each do |todo| %>
+									<div class="goal__card__step__to-do">-> <%= todo.name %></div>
+								<% end %>
+								<% if step.to_dos.blank? %>
+									<div class="goal__card__step__to-do">No todos for this step</div>
+								<% end %>
+							</div>
+						</div>
+					<% end %>
+					<% if goal.steps.blank? %>
+						<div>You don't have any steps specified for this goal</div>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

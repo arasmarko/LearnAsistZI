@@ -1,0 +1,34 @@
+<%= form_for :user, url: user_update_path, html: {class: "nifty_form"} do |f| %>
+<div class="content_wrapper">
+	<div class="content__header">
+		<div class="content__header__left">
+			<h1>Account Information</h1>
+		</div>
+		<div class="content__header__right">
+			<%= f.submit "SAVE" , class: "btn btn-success btn-save" %>
+		</div>
+		
+	</div>
+	<div class="content__body content__body__profile">
+		<div>First name:
+			<%= f.text_field :first_name, :value => @user.first_name %>
+		</div>
+		<div>
+			Last name:
+			<%= f.text_field :last_name, :value => @user.last_name %> 
+		</div>
+		<div>
+			Username: 
+			<%= f.text_field :username, :value => @user.username %>
+		</div>
+		<div class="email">
+			email: 
+			<%= f.text_field :email, :value => @user.email %>
+		</div>
+	</div>
+</div>
+<% end %>
+
+
+
+

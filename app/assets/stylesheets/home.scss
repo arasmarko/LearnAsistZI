@@ -1,0 +1,82 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.home {
+	width: 100%;
+	background: #f2f2f2;
+	border-radius: 10px;
+	border: 1px solid #fbfef2;
+	float: left;
+
+	.home__heading {
+		border-bottom: 1px solid #fbfef2;
+		padding: 0 20px;
+		text-align: center;
+	}
+
+	.home_wrapper {
+		padding: 20px;
+		float: left;
+		width: 100%;
+		background: #f2f2f2;
+
+		.goal__content__home {
+			float: left;
+			width: 100%;
+			
+			.goal__content__home__card {
+				float: left;
+				width: 29%;
+				margin: 2%;
+				padding: 20px;
+				height: 230px;
+				
+				position: relative;
+
+				.goal__content__home__card_up {
+					position: absolute;
+					background: rgba(0,0,0, 0.12);
+					height: 190px;
+					top: 0;
+					left: 0;
+					right: 0;
+
+					>div {
+						width: 100%;
+						height: 100%;
+						padding: 10% 63px; 
+						position: relative;
+					}
+
+					#circle {
+						
+
+						canvas {
+							
+
+						}
+					}
+				}
+				
+				.goal__content__home__card_down {
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					height: 40px;
+					color: #fff;
+					border-top: 1px solid rgba(255,255,255,0.6);
+					text-align: center;
+					padding-top: 8px;
+					font-size: 16px;
+					background: rgba(0,0,0, 0.4);
+
+
+				}
+			}
+		}
+	}
+}
+
+
+

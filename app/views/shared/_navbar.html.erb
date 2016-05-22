@@ -1,0 +1,6 @@
+<div class="navbar">
+  <div class="navbar__header">LEARN ASSIST</div>
+  <% if !current_user.blank? %>
+  	<div class="navbar__list__item"><%= current_user.first_name %></div>
+  <% end %>
+</div>

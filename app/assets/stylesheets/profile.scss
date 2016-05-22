@@ -1,0 +1,54 @@
+// Place all the styles related to the profile controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.content_wrapper {
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	border-radius: 4px;
+	float: left;
+	min-width: 1000px;
+
+	.content__header {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+		float: left;
+		width: 100%;
+		padding: 20px;
+
+		.content__header__left {
+			float: left;
+			width: 60%;
+
+			h1 {
+				margin: 0;
+			}
+		}
+		.content__header__right {
+			float: left;
+			width: 40%;
+			text-align: right;
+
+			.btn-save {
+				margin: 2px 15px;
+			}
+		}
+	}
+
+	.content__body {
+		float: left;
+		width: 100%;
+		padding: 20px;
+
+		&.content__body__profile {
+
+			div {
+				text-align: center;
+				padding: 10px;
+
+				&.email {
+					margin-left: 32px;
+				}
+			}
+		}
+	}
+
+}

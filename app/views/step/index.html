@@ -1,0 +1,12 @@
+<div class="page-wrapper">
+	<h1><%= @step.name %></h1>
+	<div>
+		<div class="js-add-todo" data-step-id="<%= @step.id %>">add todo +</div>
+		<div class="new_todo"></div>
+		<h2>this step to-does:</h2>
+		<% @step.to_dos.each do |todo|%>
+			<div><%= todo.name %></div>
+		<% end %>
+
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<div class="home">
+	<div class="home__heading">
+		<h1>List of your goals</h1>
+	</div>
+	<div class="home_wrapper">
+		<div class="goal__content__home" data-length="<%= @goals.count %>">
+			<% i = 1 %>
+			<% @goals.each do |goal| %>
+				<div class="goal__content__home__card">
+					<div class="goal__content__home__card_up">
+						<div id="circle<%=i%>" data-goal="<%= goal.id %>"></div>
+					</div>
+					<div class="goal__content__home__card_down"><%= goal.name %></div>
+				</div>
+				<% i = i+1 %>
+			<% end %>
+		</div>
+		<% if @goals.blank? %>
+			You dont have any goals
+		<% end %>
+	</div>
+</div>

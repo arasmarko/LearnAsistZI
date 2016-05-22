@@ -1,0 +1,5 @@
+<%= form_for :todo, url: todo_new_path, html: {class: "nifty_form"} do |f| %>
+	<%= f.hidden_field :step_id, :value => @step.id %>
+	<%= f.text_field :name, :placeholder => 'todo name' %>
+	<%= f.submit "Create" , class: "btn btn-success" %>
+<% end %>

@@ -1,0 +1,5 @@
+<%= form_for :step, url: create_step_path, html: {class: "nifty_form"} do |f| %>
+	<%= f.hidden_field :goal_id, :value => @goal.id %>
+	<%= f.text_field :name, :placeholder => 'Step name' %>
+	<%= f.submit "Create" , class: "btn btn-success btn-sm" %>
+<% end %>

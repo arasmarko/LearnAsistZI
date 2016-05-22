@@ -14,3 +14,27 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//= require jquery
+//= require bootstrap-sprockets
+//= require bootstrap.js
+
+//= require bootstrap_sb_admin_base_v2
+
+function openModal() {
+	$('body').addClass('modal-open');
+	$('.overlay').show();
+	$('.custom-modal').show();
+
+}
+
+function closeModal() {
+	$('body').removeClass('modal-open');
+	$('.overlay').hide();
+	$('.custom-modal').empty().hide();
+
+}
+
+$(document).on('click', '.overlay', function (e) {
+	closeModal();
+})

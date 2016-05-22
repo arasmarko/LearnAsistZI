@@ -1,56 +1,43 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  devise_for :users
+	#HOME	
+	get '/', :to => 'home#index', :as => 'home'
+	get '/search', :to => 'home#search', :as => 'search'
+	get '/out', :to => 'home#out', :as => 'out'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+	#PROFILE
+	get '/profile', :to => 'profile#index', :as => 'profile'
+	post '/user-update', :to => 'profile#user_update', :as => 'user_update'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+	#GOAL
+	get '/goal/', :to => 'goal#index', :as => 'goals'
+	get '/goal/new', :to => 'goal#new', :as => 'new_goal'
+	post '/goal/create_goal', :to => 'goal#create_goal', :as => 'create_goal'
+	get '/goal/get-progress', :to => 'goal#get_progress', :as => 'goal_get_progress'
+	get '/goal/(:id)', :to => 'goal#goal', :as => 'goal'
+	get '/goal/delete/(:id)', :to => 'goal#delete', :as => 'delete_goal'
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+	
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+	#STEP
+	get 'step/new', :to => 'step#new', :as => 'new'
+	post 'step/create', :to => 'step#create', :as => 'create_step'
+	get 'goal/step/(:id)', :to => 'step#index', :as => 'step'
+	post 'step/new_from_goal', :to => 'step#new_from_goal', :as => 'step_new_from_goal'
+	get 'step/get-progress', :to => 'step#get_progress', :as => 'step_get_progress'
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+	#TO-DO
+	get 'todo/new', :to => 'todo#new', :as => 'todo_new'
+	post 'todo/new', :to => 'todo#save_new', :as => 'todo_save_new'
+	post 'todo/check', :to => 'todo#check', :as => 'todo_check'
+	post 'todo/uncheck', :to => 'todo#uncheck', :as => 'todo_uncheck'
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+	#recover
+	match ':controller(/:action(/:id))', :via => :get
+
+	root to: "home#index"
+
 end

@@ -1,0 +1,174 @@
+// Place all the styles related to the goal controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.page-wrapper {
+	width: 100%;
+	background: #f2f2f2;
+	
+
+	border-radius: 10px;
+	border: 1px solid #fbfef2;
+}
+
+.add__goal__modal {
+	text-align: center;
+
+	input {
+		display: block;
+		width: 100%;
+	}
+
+	.submit {
+		width: 40%;
+		margin: 10px 30%; 
+	}
+}
+
+.goal__heading {
+	padding: 20px;
+	border-bottom: 1px solid #fbfef2;
+	height: 70px;
+	
+	h1 {
+		margin: 0;
+		font-size: 30px;
+		float: left;
+	}
+
+	div {
+		display: block;
+		cursor: pointer;
+		color: black;
+		float: right;
+		color: white;
+	}
+}
+
+.goal__content {
+	padding: 20px;
+
+	.goal__content__steps {
+
+		.goal__content__step {
+			padding: 15px;
+			border: 1px solid rgba(0,0,0,0.1);
+			border-radius: 4px;
+			margin: 10px 0;
+			min-height: 50px;
+
+			.goal__content__step__header {
+				float: left;
+				width: 100%;
+
+				a {
+					float: left;
+				}
+
+				.progress_bar {
+					float: left;
+					position: relative;
+					width: 200px;
+					margin: 7px 0px 0 20px;
+					background: #fff;
+					border: 1px solid rgba(0,0,0,0.3);
+					border-radius: 12px;
+					height: 8px;
+					overflow: hidden;
+
+					.progress_bar_done {
+						position: absolute;
+						top: 0;
+						left: -100%;
+						width: 100%;
+						height: 100%;
+						background: #15D448;
+						border-radius: 12px;
+					}
+				}
+
+				
+			}
+
+			.goal__content__step__todos {
+				padding-left: 10px;
+
+				.goal__content__step__todo {
+					
+				}
+
+			}
+
+		}
+
+	}
+}
+
+.goal__card {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #fbfef2;
+
+	.goal__card__header {
+		margin-bottom: 30px;
+	}
+
+	.goal__card__link {
+		font-size: 16px;
+	}
+
+	.goal__card__delete {
+		float: right;
+		padding: 6px 26px 6px 27px;
+		margin: 0px;
+	}
+
+	.goal__card__steps {
+		padding: 10px 20px;
+
+		.goal__card__step {
+			display: block;
+			padding: 10px;
+			border: 1px solid rgba(0,0,0,0.3);
+			border-radius: 4px;
+			margin: 10px 0;
+
+			&.goal__card__step__new {
+				display: none;
+				position: relative;
+
+				.close-add-step__from-goal {
+					position: absolute;
+					top: 15px;
+					right: 15px;
+					cursor: pointer;
+				}
+
+				.step_added {
+					display: none;
+				}
+			}
+
+			.goal__card__step__link {
+
+			}
+
+			.goal__card__step__to-dos {
+				padding-left: 15px;
+				
+				.goal__card__step__to-do {
+
+				}
+			}
+
+
+		}
+	}
+}
+
+#progress {
+	float: left !important;
+	margin: 0 20px !important;
+	width: 400px !important;
+	height: 8px !important;
+}

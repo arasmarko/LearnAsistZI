@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
+  adapter: mysql2
   database: heroku_179f016f24cc4eb
   username: b884f0aede50e6
   password: 49d76f07

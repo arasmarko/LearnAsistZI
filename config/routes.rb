@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 	#GOAL
 	get '/goal/', :to => 'goal#index', :as => 'goals'
 	get '/goal/new', :to => 'goal#new', :as => 'new_goal'
+	get '/goal/new-note', :to => 'goal#new_note', :as => 'new_note'
 	post '/goal/create_goal', :to => 'goal#create_goal', :as => 'create_goal'
 	get '/goal/get-progress', :to => 'goal#get_progress', :as => 'goal_get_progress'
 	get '/goal/(:id)', :to => 'goal#goal', :as => 'goal'
@@ -27,6 +28,9 @@ Rails.application.routes.draw do
 	get 'goal/step/(:id)', :to => 'step#index', :as => 'step'
 	post 'step/new_from_goal', :to => 'step#new_from_goal', :as => 'step_new_from_goal'
 	get 'step/get-progress', :to => 'step#get_progress', :as => 'step_get_progress'
+	get '/step/partial-add-step', :to => 'step#partial_add_step', :as => 'partial_add_step'
+	post '/step/delete/(:id)', :to => 'step#delete', :as => 'delete_step'
+	get '/step/notes/(:id)', :to => 'step#notes', :as => 'step_notes'
 
 
 	#TO-DO

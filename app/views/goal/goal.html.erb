@@ -13,9 +13,6 @@
 					<div class="goal__content__step">
 						<div class="goal__content__step__header">
 							<%= link_to(step.name, step_path(:id => step.id) ) %>
-							<% if false %>
-								<div class="progress <%= step.id %> cls<%= step.id %>" id="progress"></div>
-							<% end %>
 							<div class="progress_bar">
 								<div class="progress_bar_done <%= step.id %>" id="step-<%= step.id %>"></div>
 							</div>

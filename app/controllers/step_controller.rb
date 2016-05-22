@@ -28,6 +28,17 @@ class StepController < ApplicationController
 		render :json => { :success => true, :stepId => step.id}
 	end
 
+	def delete
+		step = Step.find(params[:id])
+		step.delete
+		render :json => { :success => true }
+	end
+
+	def notes
+		step = Step.find(params[:id])
+		@notes = step.notes
+	end
+
 	def get_progress
 		stepId = params[:stepId]
 		step = Step.find(stepId)
@@ -41,6 +52,16 @@ class StepController < ApplicationController
 		
 
 		render :json => { :success => true, :progress => progress*100, :steps => steps, :stepsDone => stepsDone, :stepId => stepId}
+	end
+
+	def partial_add_step
+		goal = Goal.find(params[:goal])
+
+		respond_to do |format|
+		  	@html_content = render_to_string :partial => 'goal/add_step', :locals => {:goal => goal}
+		  	format.json { render :json => { :html_content => @html_content } }
+		end
+		
 	end
 
 	private

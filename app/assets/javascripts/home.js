@@ -14,21 +14,21 @@ $( document ).ready(function() {
          }).success(function(data) {
            console.log('set push: ', data);
            progresses.push(data.progress)
-           if (progresses.length == 3) {
+           if (progresses.length == length) {
              callback();
            }
            
        });
      }
-
-     
   }
 
   getArr(function () {
+
      for (var i = 1; i < length+1; i++) {
 
        var goal = $('#circle'+i).data('goal');
-       console.log('init: ');
+       console.log('init: ', progresses[0]*100);
+       $('#circle'+i).next().text(progresses[0]*100+'%');
 
        $('#circle'+i).circleProgress({
            value: progresses.shift(),
@@ -39,9 +39,6 @@ $( document ).ready(function() {
            startAngle: 90
        });
      }
-  })
-
-  
- 
+  }) 
 
 });

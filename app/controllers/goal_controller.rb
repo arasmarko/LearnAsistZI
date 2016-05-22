@@ -22,6 +22,13 @@ class GoalController < ApplicationController
 		end
 	end
 
+	def new_note
+		respond_to do |format|
+		  	@html_content = render_to_string :partial => 'note/new'
+		  	format.json { render :json => { :html_content => @html_content } }
+		end
+	end
+
 	def create_goal
 		goal = Goal.new(:name => create_goal_params[:name], :user_id => current_user.id)
 		goal.save

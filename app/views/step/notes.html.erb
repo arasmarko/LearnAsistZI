@@ -1,0 +1,22 @@
+<div class="page-wrapper">
+	<div class="note__heading">
+		<h1>List of notes for <%= @notes.first.step.name %> </h1>
+	</div>
+	<div class="note__content">
+		<% @notes.each do |note|%>
+			<div class="note__card">
+				<div class="note__card__header">
+					<h2><%= note.name %></h2>
+				</div>
+				<div class="note__card__body">
+					<div class="note__card__body__note">
+						<%= note.note %>
+					</div>
+					<div class="note__card__body__date">
+						<%= note.created_at %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

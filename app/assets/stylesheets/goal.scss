@@ -14,15 +14,52 @@
 .add__goal__modal {
 	text-align: center;
 
-	input {
-		display: block;
-		width: 100%;
+	.add__goal__modal__header {
+		text-align: left;
+		height: 60px;
+		padding: 15px 20px;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+		font-size: 24px;
+		font-weight: 600;
+
 	}
 
-	.submit {
-		width: 40%;
-		margin: 10px 30%; 
+	.add__goal__modal__body {
+		padding: 20px;
+		text-align: left;
+
+		.add__goal__modal__body__goal {
+			margin-bottom: 20px;
+
+			input {
+				display: block;
+				width: 100%;
+				height: 30px;
+			}
+		}
+
+		.add__goal__modal__body__description {
+			margin-bottom: 20px;
+
+			input {
+				display: block;
+				width: 100%;
+				height: 120px;
+			}
+		}
+
+		p {
+			font-size: 16px;
+			margin-bottom: 5px;
+		}
+
+		.submit {
+			width: 40%;
+			margin: 10px 30%; 
+		}
 	}
+
+	
 }
 
 .goal__heading {
@@ -111,11 +148,21 @@
 
 	.goal__card__header {
 		margin-bottom: 30px;
+
+		.goal__card__link {
+			font-size: 24px;
+			
+		}
+
+		.goal__card__header__description {
+			width: 70%;
+			padding-left: 10px;
+			margin-top: 10px;
+		}
+
 	}
 
-	.goal__card__link {
-		font-size: 16px;
-	}
+	
 
 	.goal__card__delete {
 		float: right;
@@ -129,12 +176,88 @@
 		.goal__card__step {
 			display: block;
 			padding: 10px;
-			border: 1px solid rgba(0,0,0,0.3);
+			// border: 1px solid rgba(0,0,0,0.3);
 			border-radius: 4px;
-			margin: 10px 0;
+			margin: 10px 0 15px;
+			width: 100%;
+
+			.goal__card__step__header {
+				width: 100%;
+				height: 30px;
+
+				.goal__card__step__link__delete {
+					margin-right: 10px;
+					text-decoration: none;
+					color: rgba(0,0,0,0.7);
+					float: left;
+					width: 25px;
+					height: 25px;
+
+					&.glyphicon {
+						top: -2px !important;
+						font-size: 16px;
+						cursor: pointer;
+						line-height: 21px;
+						border-radius: 10px;
+						padding-left: 4px;
+						padding-top: 2px;
+
+						&:hover {
+							background: rgba(0, 0, 0, 0.08);
+						}
+					}
+				}
+
+				.goal__card__step__link {
+					float: left;
+
+					&.goal__card__step__link__note {
+						margin-left: 15px;
+						text-decoration: none;
+
+						span {
+							margin-right: 5px;
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+
+						.glyphicon {
+							top: 2px !important;
+							
+
+						}
+					}
+				}
+
+				.progress_bar {
+					float: left;
+					position: relative;
+					width: 200px;
+					margin: 7px 0px 0 20px;
+					background: #fff;
+					border: 1px solid rgba(0,0,0,0.3);
+					border-radius: 12px;
+					height: 8px;
+					overflow: hidden;
+
+					.progress_bar_done {
+						position: absolute;
+						top: 0;
+						left: -100%;
+						width: 100%;
+						height: 100%;
+						background: #15D448;
+						border-radius: 12px;
+					}
+				}
+
+			}
+
+			
 
 			&.goal__card__step__new {
-				display: none;
+				// display: none;
 				position: relative;
 
 				.close-add-step__from-goal {
@@ -149,15 +272,12 @@
 				}
 			}
 
-			.goal__card__step__link {
-
-			}
-
 			.goal__card__step__to-dos {
 				padding-left: 15px;
+				margin-top: 8px;
 				
 				.goal__card__step__to-do {
-
+					display: block;
 				}
 			}
 

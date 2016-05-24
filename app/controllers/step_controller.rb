@@ -36,6 +36,7 @@ class StepController < ApplicationController
 
 	def notes
 		step = Step.find(params[:id])
+		@step = step
 		@notes = step.notes
 	end
 

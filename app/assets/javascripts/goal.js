@@ -136,6 +136,48 @@ $(document).on('click', '.js-add-note', function (e) {
 		});
 });
 
+$(document).on('click', '.js-add-todo__from-goal', function (e) {	
+
+	if ($(this).text() == 'add') {
+		var todo = $(this).parent().find('input').val();
+		var step = $(this).data('step-id');
+		console.log('add: ', todo, step);
+
+		var x = this;
+		$.ajax({
+			type: 'POST',
+			url: '/goal/create-todo',
+			data: {step_id: step, name: todo}
+			}).success(function(data) {
+				console.log('added: ', data);
+				ret = '<div class="goal__card__step__to-do"><span data-todo-id="'+data.id+'" >'+todo+'</span><input type="checkbox" data-todo-id="'+data.id+'" class="js-todo-check"><span class="js-remove-todo__from-goal" data-todo-id="'+data.id+'">X</span></div>'
+				$(ret).insertBefore($(x).parent());
+				$(x).parent().find('input').val('').hide();
+				$(x).text('add todo +');
+			});
+	} else {
+		$(this).parent().find('input').show();
+		$(this).text('add');
+	}
+});
+
+$(document).on('click', '.js-remove-todo__from-goal', function (e) {	
+
+	
+	var id = $(this).data('todo-id');
+	console.log('brisem', id);
+	$(this).parent().remove();
+
+	$.ajax({
+		type: 'POST',
+		url: '/goal/remove-todo',
+		data: {todo_id: id}
+		}).success(function(data) {
+			console.log('removed: ', data);
+			
+		});
+});
+
 
 
 

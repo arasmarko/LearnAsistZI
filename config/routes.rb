@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 	get '/goal/(:id)', :to => 'goal#goal', :as => 'goal'
 	get '/goal/delete/(:id)', :to => 'goal#delete', :as => 'delete_goal'
 	post '/goal/create_note', :to => 'goal#create_note', :as => 'create_note'
+	post '/goal/create-todo', :to => 'goal#create_todo', :as => 'create_todo'
+	post '/goal/remove-todo', :to => 'goal#remove_todo', :as => 'remove_todo'
 
 	
 

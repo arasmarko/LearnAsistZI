@@ -9,10 +9,11 @@ $( document ).ready(function() {
 
        $.ajax({
          type: 'GET',
+         async: false,
          url: '/goal/get-progress',
          data: {goal: goal}
          }).success(function(data) {
-           console.log('set push: ', data);
+           console.log('set push for: ', data);
            progresses.push(data.progress)
            if (progresses.length == length) {
              callback();
@@ -28,7 +29,7 @@ $( document ).ready(function() {
 
        var goal = $('#circle'+i).data('goal');
        console.log('init: ', progresses[0]*100);
-       $('#circle'+i).next().text(progresses[0]*100+'%');
+       $('#circle'+i).next().text(parseInt(progresses[0]*100)+'%');
 
        $('#circle'+i).circleProgress({
            value: progresses.shift(),

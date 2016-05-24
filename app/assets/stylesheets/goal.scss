@@ -279,6 +279,18 @@
 				.goal__card__step__to-do {
 					display: block;
 				}
+
+				.goal__content__step__todos__add-todo {
+					margin-top: 10px;
+
+					.goal__content__step__todos__add-todo__input {
+						display: none;
+					}
+
+					span {
+						cursor: pointer;
+					}
+				}
 			}
 
 

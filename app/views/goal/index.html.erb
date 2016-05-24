@@ -38,11 +38,16 @@
 									<div class="goal__card__step__to-do">
 										<span data-todo-id="<%= todo.id %>" <% if todo.status == '1' %>style="text-decoration: line-through;"<% end %>><%= todo.name %></span>
 										<input type="checkbox" data-todo-id="<%= todo.id %>" class="js-todo-check" <% if todo.status == '1' %>checked<% end %>>
+										<span class="js-remove-todo__from-goal" data-todo-id="<%= todo.id %>">X</span>
 									</div>
 								<% end %>
 								<% if step.to_dos.blank? %>
 									<div class="goal__card__step__to-do">No todos for this step</div>
 								<% end %>
+								<div class="goal__content__step__todos__add-todo">
+									<input type="text" class="goal__content__step__todos__add-todo__input">
+									<span class="js-add-todo__from-goal" data-step-id="<%= step.id %>">add todo +</span>
+								</div>
 							</div>
 						</div>
 					<% end %>

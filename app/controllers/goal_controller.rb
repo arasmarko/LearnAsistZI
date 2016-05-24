@@ -36,10 +36,22 @@ class GoalController < ApplicationController
 		redirect_to :back
 	end
 
+	def create_todo
+		todo = ToDo.new( :step_id => params[:step_id], :name => params[:name], :status => "0")
+		todo.save
+		render :json => { :success => true, :id => todo.id }
+	end
+
+	def remove_todo
+		todo = ToDo.find(params[:todo_id])
+		todo.destroy
+		render :json => { :success => true }
+	end
+
 	def create_goal
 		goal = Goal.new(:name => create_goal_params[:name], :user_id => current_user.id)
 		goal.save
-		redirect_to root_path
+		redirect_to :back
 	end
 
 	def get_progress

@@ -47,6 +47,13 @@
 				&.email {
 					margin-left: 32px;
 				}
+
+				&.avatar {
+
+					input {
+						display: inline-block;
+					}
+				}
 			}
 		}
 	}

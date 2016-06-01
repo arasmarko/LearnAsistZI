@@ -65,7 +65,9 @@ class StepController < ApplicationController
 		
 	end
 
-	
+	def repository
+		
+	end
 
 	private
 

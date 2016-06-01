@@ -86,10 +86,5 @@ class GoalController < ApplicationController
 	def create_goal_params
 		params.require(:goal).permit(:name)
 	end
-
-
-	def create_note_params
-		params.require(:note).permit(:name, :description)
-	end
 end
 

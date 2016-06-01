@@ -16,6 +16,11 @@
 							<div class="progress_bar">
 								<div class="progress_bar_done <%= step.id %>" id="step-<%= step.id %>"></div>
 							</div>
+							<%= link_to(step_notes_path(:id => step.id), :class => 'goal__card__step__link goal__card__step__link__note')  do %>
+								<span>Notes</span>
+								<span class="glyphicon glyphicon-list"></span>
+							<% end %>
+							<div class="goal__card__step__link js-add-note" data-step-id="<%= step.id %>">Add note +</div>
 						</div>
 						
 						<div class="goal__content__step__todos">

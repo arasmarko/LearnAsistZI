@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 	get '/goal/get-progress', :to => 'goal#get_progress', :as => 'goal_get_progress'
 	get '/goal/(:id)', :to => 'goal#goal', :as => 'goal'
 	get '/goal/delete/(:id)', :to => 'goal#delete', :as => 'delete_goal'
-	post '/goal/create_note', :to => 'goal#create_note', :as => 'create_note'
+	post '/goal/create_note', :to => 'note#create_note', :as => 'create_note'
 	post '/goal/create-todo', :to => 'goal#create_todo', :as => 'create_todo'
 	post '/goal/remove-todo', :to => 'goal#remove_todo', :as => 'remove_todo'
 
@@ -35,6 +35,7 @@ Rails.application.routes.draw do
 	get '/step/partial-add-step', :to => 'step#partial_add_step', :as => 'partial_add_step'
 	post '/step/delete/(:id)', :to => 'step#delete', :as => 'delete_step'
 	get '/step/notes/(:id)', :to => 'step#notes', :as => 'step_notes'
+	get '/step/repository/(:id)', :to => 'step#repository', :as => 'step_repository'
 
 
 	#TO-DO

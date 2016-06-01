@@ -13,13 +13,13 @@
 
 <%= render 'shared/navbar' %>
 
-<div class="navlist">
-	<%= link_to "Goals", goals_path, class: "navlist_item"%>
-	<% if !current_user.blank? %>
-		<%= link_to "Profile", profile_path, class: "navlist_item"%>
-	<% end %>
-</div>
-
+<% if !current_user.blank? %>
+  <div class="navlist">
+    <%= link_to "Goals", goals_path, class: "navlist_item"%>
+    <%= link_to "Profile", profile_path, class: "navlist_item"%>
+    <%= link_to "Log out", out_path, class: "navlist_item"%>
+  </div>
+<% end %>
 <div class="content">
 	<%= yield %>
 </div>

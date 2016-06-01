@@ -32,6 +32,7 @@
 									<span class="glyphicon glyphicon-list"></span>
 								<% end %>
 								<div class="goal__card__step__link js-add-note" data-step-id="<%= step.id %>">Add note +</div>
+								<%= link_to( "repository", step_repository_path(:id => step.id), :class => 'goal__card__step__link goal__card__step__link__note') %>
 							</div>
 							<div class="goal__card__step__to-dos">
 								<% step.to_dos.each do |todo| %>

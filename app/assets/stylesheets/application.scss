@@ -10,6 +10,9 @@
 @import "goal";
 @import "profile";
 @import "note";
+@import "step";
+
+$breakpoint-mobile: "only screen and (max-width: 640px)";
 
 body {
 	margin: 0;
@@ -52,4 +55,10 @@ body {
 	left: 0;
 	right: 0;
     text-align: center;
+}
+
+.notice {
+	position: absolute;
+    top: 20px;
+    left: 40%;
 }

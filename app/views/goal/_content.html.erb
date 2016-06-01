@@ -1,0 +1,60 @@
+<div class="goal__content">
+		<% if defined? goals %>
+			<% @goals = goals %>
+		<% else %>
+		<% end %>
+		<% @goals.each do |goal| %>
+			<div class="goal__card">
+				<div class="goal__card__header">
+					<%= link_to( goal.name, goal_path(goal.id), :class => 'goal__card__link') %>
+					<%= link_to( "delete goal", delete_goal_path(goal.id), :class => 'goal__card__delete btn btn-danger') %>
+					<% if !goal.description.blank? %>
+						<div class="goal__card__header__description">
+							<%= goal.description %>
+						</div>
+					<% end %>
+				</div>
+				<div class="goal__card__add__new">
+					<div class="btn btn-default btn-xs js-add-step__from-goal" data-goal="<%= goal.id %>">Add step</div>
+				</div>
+				<div class="goal__card__steps">
+					<% goal.steps.order(:created_at => 'DESC').each do |step| %>
+						<div class="goal__card__step">
+							<div class="goal__card__step__header">
+								<div class="goal__card__step__link__delete glyphicon glyphicon-trash" data-id="<%= step.id %>"></div>
+								<%= link_to(step.name, step_path(:id => step.id), :class => 'goal__card__step__link') %>
+								<div class="progress_bar">
+									<div class="progress_bar_done <%= step.id %>" id="step-<%= step.id %>"></div>
+								</div>
+								<%= link_to(step_notes_path(:id => step.id), :class => 'goal__card__step__link goal__card__step__link__note')  do %>
+									<span>Notes</span>
+									<span class="glyphicon glyphicon-list"></span>
+								<% end %>
+								<div class="goal__card__step__link js-add-note" data-step-id="<%= step.id %>">Add note +</div>
+								<%= link_to( "repository", step_repository_path(:id => step.id), :class => 'goal__card__step__link goal__card__step__link__note') %>
+							</div>
+							<div class="goal__card__step__to-dos">
+								<% step.to_dos.each do |todo| %>
+									<div class="goal__card__step__to-do">
+										<span data-todo-id="<%= todo.id %>" <% if todo.status == '1' %>style="text-decoration: line-through;"<% end %>><%= todo.name %></span>
+										<input type="checkbox" data-todo-id="<%= todo.id %>" class="js-todo-check" <% if todo.status == '1' %>checked<% end %>>
+										<span class="js-remove-todo__from-goal" data-todo-id="<%= todo.id %>">X</span>
+									</div>
+								<% end %>
+								<% if step.to_dos.blank? %>
+									<div class="goal__card__step__to-do">No todos for this step</div>
+								<% end %>
+								<div class="goal__content__step__todos__add-todo">
+									<input type="text" class="goal__content__step__todos__add-todo__input">
+									<span class="js-add-todo__from-goal" data-step-id="<%= step.id %>">add todo +</span>
+								</div>
+							</div>
+						</div>
+					<% end %>
+					<% if goal.steps.blank? %>
+						<div>You don't have any steps specified for this goal</div>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>

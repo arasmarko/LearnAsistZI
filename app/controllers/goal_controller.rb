@@ -77,8 +77,40 @@ class GoalController < ApplicationController
 
 		
 		render :json => { :success => true, :progress => progress, to_dos: to_dos, to_dosDone: to_dosDone}
+	end
 
-		
+	def search
+		user = current_user
+		goals = user.goals.where("name like ?", "%#{params[:search_terms]}%")
+		steps = []
+
+		#bolje bi bilo steps = Goal.joins(:steps).where(:steps => { "name" => "html" })
+		for goal in user.goals
+			logger.info "kurac1"
+			for step in goal.steps.where("name like ?", "%#{params[:search_terms]}%")
+				logger.info "kurac2"
+				if !goals.include?(step.goal)
+					goals.push(step.goal)
+				end
+			end
+			for step in goal.steps
+				for todo in step.to_dos.where("name like ?", "%#{params[:search_terms]}%")
+					logger.info "kurac3"
+					if !goals.include?(todo.step.goal)
+						goals.push(todo.step.goal)
+					end
+				end
+			end
+			
+
+
+		end
+
+		respond_to do |format|
+		  	@html_content = render_to_string :partial => 'goal/content', :locals => { :goals => goals }
+		  	format.json { render :json => { :html_content => @html_content } }
+		end
+
 	end
 
 	private

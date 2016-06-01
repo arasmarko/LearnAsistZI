@@ -1,16 +1,6 @@
 $(document).on('page:ready page:change', function (){
 
-	$('.progress_bar_done').each(function(i, obj) {
-		stepId= obj.classList[1];
-		// console.log(obj.classList[1])
-		$.ajax({
-			type: 'GET',
-			url: '/step/get-progress',
-			data: {stepId: stepId}
-			}).success(function(data) {
-				$('#step-'+data.stepId).animate({left: 0, width: data.progress+'%'});
-		});
-	});
+	populateProgressBars();
 });
 
 
@@ -178,6 +168,45 @@ $(document).on('click', '.js-remove-todo__from-goal', function (e) {
 		});
 });
 
+
+$(document).on('keyup', '.js-goal_search__input', function (e) {	
+
+});
+
+$(document).on('click', '.js-search', function (e) {	
+	var searchTerms = $('.js-goal_search__input').val();
+
+	var inputPlace = $('.goal__content').parent();
+	$('.goal__content').remove();
+
+	$.ajax({
+		type: 'POST',
+		url: '/goal/search',
+		data: {search_terms: searchTerms},
+		}).success(function(data) {
+			console.log(data.html_content);
+			inputPlace.append(data.html_content);
+			populateProgressBars();
+			
+		});
+
+
+
+});
+
+function populateProgressBars (argument) {
+	$('.progress_bar_done').each(function(i, obj) {
+		stepId= obj.classList[1];
+		// console.log(obj.classList[1])
+		$.ajax({
+			type: 'GET',
+			url: '/step/get-progress',
+			data: {stepId: stepId}
+			}).success(function(data) {
+				$('#step-'+data.stepId).animate({left: 0, width: data.progress+'%'});
+		});
+	});
+}
 
 
 

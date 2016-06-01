@@ -66,7 +66,30 @@ class StepController < ApplicationController
 	end
 
 	def repository
+		@step = Step.find(params[:id])
+		@resources = Resource.where(:step_id => params[:id])
 		
+	end
+
+	def add_asset
+		resource = Resource.new(asset_params)
+		# resource.name = resource.asset_file_name
+		# resource.url = '/public/resources/'+resource.name
+		if resource.save
+			logger.info "saved" + resource.to_yaml
+		else
+			logger.info "not saved" + resource.to_yaml
+		end
+		redirect_to :back
+	end
+
+	private
+
+	# Use strong_parameters for attribute whitelisting
+	# Be sure to update your create() and update() controller methods.
+
+	def asset_params
+	  params.require(:resource).permit(:asset, :step_id)
 	end
 
 	private

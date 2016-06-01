@@ -1,0 +1,13 @@
+<div class="admin__page">
+	<div class="header">
+		<h1>Admin Page</h1>
+	</div>
+	<div class="users">
+		<% @users.each do |user| %>
+			<div class="user">
+				<%= user.email %> <%= link_to "delete user", admin_delete_user_path(:id => user.id) %>
+			</div>
+		<% end %>
+	</div>
+
+</div>

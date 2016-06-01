@@ -3,11 +3,11 @@
 	<div class="content__header">
 		<div class="content__header__left">
 			<h1>Account Information</h1>
-			<div>
+			<%if false %>
 				<%= image_tag @user.avatar.url %>
 				<%= image_tag @user.avatar.url(:medium) %>
 				<%= image_tag @user.avatar.url(:thumb) %>
-			</div>
+			<% end %>
 		</div>
 		<div class="content__header__right">
 			<%= f.submit "SAVE" , class: "btn btn-success btn-save" %>
@@ -15,22 +15,24 @@
 		
 	</div>
 	<div class="content__body content__body__profile">
-		<div>First name:
+		<div>
+			<span>First name:</span>
 			<%= f.text_field :first_name, :value => @user.first_name %>
 		</div>
 		<div>
-			Last name:
+			<span>Last name:</span>
 			<%= f.text_field :last_name, :value => @user.last_name %> 
 		</div>
 		<div>
-			Username: 
+			<span>Username:</span> 
 			<%= f.text_field :username, :value => @user.username %>
 		</div>
 		<div class="email">
-			email: 
+			<span>email:</span> 
 			<%= f.text_field :email, :value => @user.email %>
 		</div>
-		<div>update avatar:
+		<div class="avatar">
+			<span>update avatar:</span>
 			<%= f.file_field :avatar %>
 		</div>
 	</div>

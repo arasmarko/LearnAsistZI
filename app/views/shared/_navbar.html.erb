@@ -1,6 +1,9 @@
 <div class="navbar">
-  <div class="navbar__header">LEARN ASSIST</div>
+  <div class="navbar__header"><%= link_to("LEARN ASSIST", home_path) %></div>
   <% if !current_user.blank? %>
-  	<div class="navbar__list__item"><%= current_user.first_name %></div>
+  	<div class="navbar__list__item"><%= image_tag current_user.avatar.url(:thumb) %></div>
+  	<div class="navbar__list__item">
+  		<div class="navbar__list__item__name"><%= current_user.first_name %> <%= current_user.last_name %></div>
+  	</div>
   <% end %>
 </div>

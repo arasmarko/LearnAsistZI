@@ -1,0 +1,24 @@
+<div class="resources__page">
+	<div class="resources__page__header">
+		<h1>Resources for <%= @step.name %></h1>
+	</div>
+	<div class="resources">
+	<% @resources.each do |resource| %>
+		<div class="resource">
+			 <%= resource.asset_file_name %>
+			<%= link_to "Download", resource.asset.url, :class => 'glyphicon glyphicon-download' %>	
+		</div>
+	<% end %>
+	</div>
+
+
+	<div class="new__resource__form">
+		<%= form_for :resource, url: add_asset_path, html: { multipart: true } do |form| %>
+		  <%= form.hidden_field :step_id, :value => params[:id] %>
+		  <%= form.file_field :asset %>
+		  <div class="submit glyphicon glyphicon-upload" onclick="javascript:this.parentNode.submit();">Submit</div>
+		<% end %>
+	</div>
+
+</div>
+

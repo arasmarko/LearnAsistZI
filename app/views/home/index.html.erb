@@ -6,13 +6,14 @@
 		<div class="goal__content__home" data-length="<%= @goals.count %>">
 			<% i = 1 %>
 			<% @goals.each do |goal| %>
-				<div class="goal__content__home__card">
+				<%= link_to( goal_path(goal.id) , :class => "goal__content__home__card")  do %>
+				
 					<div class="goal__content__home__card_up">
 						<div id="circle<%=i%>" data-goal="<%= goal.id %>"></div>
 						<div class="goal__content__home__card_up__status">0%</div>
 					</div>
 					<div class="goal__content__home__card_down"><%= goal.name %></div>
-				</div>
+				<% end %>
 				<% i = i+1 %>
 			<% end %>
 		</div>

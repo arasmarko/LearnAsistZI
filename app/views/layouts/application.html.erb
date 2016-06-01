@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>LearnAssist</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
   <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -13,13 +14,13 @@
 
 <%= render 'shared/navbar' %>
 
-<div class="navlist">
-	<%= link_to "Goals", goals_path, class: "navlist_item"%>
-	<% if !current_user.blank? %>
-		<%= link_to "Profile", profile_path, class: "navlist_item"%>
-	<% end %>
-</div>
-
+<% if !current_user.blank? %>
+  <div class="navlist">
+    <%= link_to "Goals", goals_path, class: "navlist_item"%>
+    <%= link_to "Profile", profile_path, class: "navlist_item"%>
+    <%= link_to "Log out", out_path, class: "navlist_item"%>
+  </div>
+<% end %>
 <div class="content">
 	<%= yield %>
 </div>

@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$( document ).on('page:ready page:change', function() {
 
   var length = $('.goal__content__home').data('length');
   var progresses = [];

@@ -11,9 +11,23 @@
 	}
 
 	.navbar__list__item {
-		float: right;
-		height: 20px;
-		margin: 20px;
+		position: relative;
+
+		.navbar__list__item__name {
+			position: absolute;
+			top: 16px;
+			right: 90px;
+			font-size: 18px;
+		}
+		
+		img {
+			position: absolute;
+			border-radius: 100%;
+			width: 50px;
+			height: 50px;
+			top: 4px;
+			right: 20px;
+		}
 	}
 
 }
@@ -22,13 +36,17 @@
 	position: absolute;
 	top: 60px;
 	left: 0;
-	width: 200px;
+	width: 10%;
 	height: 100%;
 	border: 1px solid #e7e7e7;
 	border-left: 0;
 	border-top: 0;
 	background-color: #f8f8f8;
 	padding: 0 5px;
+
+	@media only screen and (max-width: 640px) {
+		width: 20%;
+	}
 
 	.navlist_item {
 		display: block;
@@ -43,8 +61,26 @@
 .content {
 	position: absolute;
 	top: 60px;
-	width: 1000px;
-	left: 200px;
+	width: 90%;
+	left: 10%;
 	height: 100%;
 	padding: 20px;
+
+	@media only screen and (max-width: 640px) {
+		width: 80%;
+		left: 20%;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

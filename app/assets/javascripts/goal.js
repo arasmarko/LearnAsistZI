@@ -140,10 +140,12 @@ $(document).on('click', '.js-add-todo__from-goal', function (e) {
 			data: {step_id: step, name: todo}
 			}).success(function(data) {
 				console.log('added: ', data);
-				ret = '<div class="goal__card__step__to-do"><span data-todo-id="'+data.id+'" >'+todo+'</span><input type="checkbox" data-todo-id="'+data.id+'" class="js-todo-check"><span class="js-remove-todo__from-goal" data-todo-id="'+data.id+'">X</span></div>'
+				
+				ret = '<div class="goal__card__step__to-do"><span class="js-remove-todo__from-goal remove-todo__from-goal" data-todo-id="'+data.id+'"><span class="glyphicon glyphicon-remove"></span></span><span data-todo-id="'+data.id+'" >'+todo+'</span><input type="checkbox" data-todo-id="'+data.id+'" class="js-todo-check"></div>'
 				$(ret).insertBefore($(x).parent());
 				$(x).parent().find('input').val('').hide();
 				$(x).text('add todo +');
+				populateProgressBars();
 			});
 	} else {
 		$(this).parent().find('input').show();
@@ -164,7 +166,7 @@ $(document).on('click', '.js-remove-todo__from-goal', function (e) {
 		data: {todo_id: id}
 		}).success(function(data) {
 			console.log('removed: ', data);
-			
+			populateProgressBars();
 		});
 });
 

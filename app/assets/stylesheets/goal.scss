@@ -230,6 +230,7 @@
 
 				.goal__card__step__link {
 					float: left;
+					cursor: pointer;
 
 					&.goal__card__step__link__note {
 						margin-left: 15px;
@@ -280,10 +281,16 @@
 				// display: none;
 				position: relative;
 
+				.add__button {
+					cursor: pointer;
+				}
+
 				.close-add-step__from-goal {
 					position: absolute;
 					top: 15px;
 					right: 15px;
+					width: 20px;
+					height: 20px;
 					cursor: pointer;
 				}
 
@@ -298,7 +305,16 @@
 				
 				.goal__card__step__to-do {
 					display: block;
+
+					.remove-todo__from-goal {
+						width: 16px;
+						height: 16px;
+						display: inline-block;
+						cursor: pointer;
+					}
 				}
+
+
 
 				.goal__content__step__todos__add-todo {
 					margin-top: 10px;
@@ -307,8 +323,8 @@
 						display: none;
 					}
 
-					span {
-						cursor: pointer;
+					.add-todo__from-goal {
+						padding: 1px 4px;
 					}
 				}
 			}

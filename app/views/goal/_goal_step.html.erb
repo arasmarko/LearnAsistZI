@@ -1,0 +1,22 @@
+<div class="goal__content__step">
+	<div class="goal__content__step__header">
+		<%= link_to(step.name, step_path(:id => step.id) ) %>
+		<div class="progress_bar">
+			<div class="progress_bar_done <%= step.id %>" id="step-<%= step.id %>"></div>
+		</div>
+		<%= link_to(step_notes_path(:id => step.id), :class => 'goal__card__step__link goal__card__step__link__note')  do %>
+			<span>Notes</span>
+			<span class="glyphicon glyphicon-list"></span>
+		<% end %>
+		<div class="goal__card__step__link js-add-note" data-step-id="<%= step.id %>">Add note +</div>
+	</div>
+	
+	<div class="goal__content__step__todos">
+		<% step.to_dos.each do |todo| %>
+			<div class="goal__content__step__todo">
+				<span data-todo-id="<%= todo.id %>" <% if todo.status == '1' %>style="text-decoration: line-through;"<% end %>><%= todo.name %></span>
+				<input type="checkbox" data-todo-id="<%= todo.id %>" class="js-todo-check" <% if todo.status == '1' %>checked<% end %>>
+			</div>
+		<%end%>
+	</div>
+</div>

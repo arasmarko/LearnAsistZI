@@ -61,6 +61,7 @@ $(document).on('click', '.js-post-add-step__from-goal', function (e) {
 			$('.step_added').attr('href', '/goal/step/'+data.stepId);
 			$('.step_added').parent().parent().removeClass('goal__card__step__new');
 			$('.step_added').parent().find('.progress_bar').show();
+			window.location = window.location;
 
 		});
 

@@ -3,16 +3,22 @@ class GoalController < ApplicationController
 	before_action :authenticate_user!
 	
 	def index
-		@goals = Goal.where(:user_id => current_user.id)
+		if !params[:id].blank?
+			@goals = Goal.where(:id => params[:id])
+		else
+			@goals = Goal.where(:user_id => current_user.id)
+		end
+		
 	end
 
 	def goal
-		@goal = Goal.find(params[:id])
+		redirect_to goals_path(:id => params[:id])
+		# @goal = Goal.find(params[:id])
 	end
 
 	def delete
 		@goal = Goal.find(params[:id]).destroy
-		redirect_to :back
+		redirect_to goals_path
 	end
 
 	def new

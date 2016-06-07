@@ -51,6 +51,8 @@ Rails.application.routes.draw do
 	post 'todo/check', :to => 'todo#check', :as => 'todo_check'
 	post 'todo/uncheck', :to => 'todo#uncheck', :as => 'todo_uncheck'
 
+	get 'application/ORlabos', :to => 'application#ORlabos'
+
 	#recover
 	match ':controller(/:action(/:id))', :via => :get
 

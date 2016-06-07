@@ -55,7 +55,7 @@ class GoalController < ApplicationController
 	end
 
 	def create_goal
-		goal = Goal.new(:name => create_goal_params[:name], :user_id => current_user.id)
+		goal = Goal.new(:name => create_goal_params[:name],:description => create_goal_params[:description], :user_id => current_user.id)
 		goal.save
 		redirect_to :back
 	end
@@ -122,7 +122,7 @@ class GoalController < ApplicationController
 	private
 
 	def create_goal_params
-		params.require(:goal).permit(:name)
+		params.require(:goal).permit(:name,:description)
 	end
 end
 

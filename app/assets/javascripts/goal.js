@@ -200,7 +200,6 @@ $(document).on('click', '.js-search', function (e) {
 function populateProgressBars (argument) {
 	$('.progress_bar_done').each(function(i, obj) {
 		stepId= obj.classList[1];
-		// console.log(obj.classList[1])
 		$.ajax({
 			type: 'GET',
 			url: '/step/get-progress',
@@ -210,6 +209,8 @@ function populateProgressBars (argument) {
 		});
 	});
 }
+
+
 
 
 

@@ -1,6 +1,11 @@
 <div class="home">
 	<div class="home__heading">
 		<h1>List of your goals</h1>
+		<div class="selector">
+			<input type="checkbox" class="js-searchStarted" checked="checked"><span>Just started</span>
+			<input type="checkbox" class="js-searchWorking" checked="checked"><span>In progress</span>
+			<input type="checkbox" class="js-searchFinished" checked="checked"><span>Finished</span>
+		</div>
 	</div>
 	<div class="home_wrapper">
 		<div class="goal__content__home" data-length="<%= @goals.count %>">

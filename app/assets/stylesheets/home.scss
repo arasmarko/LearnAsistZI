@@ -12,6 +12,14 @@
 		border-bottom: 1px solid #fbfef2;
 		padding: 0 20px;
 		text-align: center;
+
+		.selector {
+			margin-bottom: 10px;
+
+			span {
+				margin-right: 10px;
+			}
+		}
 	}
 
 	.home_wrapper {

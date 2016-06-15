@@ -4,9 +4,15 @@
 		<% else %>
 		<% end %>
 		<% @goals.each do |goal| %>
-			<div class="goal__card">
+			<div class="goal__card colapsed">
+				<div class="goal__card__colapsed">
+					<%= link_to( goal.name, goal_path(goal.id), :class => 'goal__card__link') %>
+					<span class="goal__card__colapsed__show">show more</span>
+					<%= link_to( "delete goal", delete_goal_path(goal.id), :class => 'goal__card__delete btn btn-danger') %>
+				</div>
 				<div class="goal__card__header">
 					<%= link_to( goal.name, goal_path(goal.id), :class => 'goal__card__link') %>
+					<div class="goal__card__colapsed__hide">show less</div>
 					<%= link_to( "delete goal", delete_goal_path(goal.id), :class => 'goal__card__delete btn btn-danger') %>
 					<% if !goal.description.blank? %>
 						<div class="goal__card__header__description">

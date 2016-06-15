@@ -87,29 +87,36 @@ class GoalController < ApplicationController
 
 	def search
 		user = current_user
-		goals = user.goals.where("name like ?", "%#{params[:search_terms]}%")
+		goals = []
 		steps = []
+		searchGoals = params[:search_goals]
+		searchSteps = params[:search_steps]
+		searchToDos = params[:search_toDos]
+		searchResources = params[:search_resources]
 
-		#bolje bi bilo steps = Goal.joins(:steps).where(:steps => { "name" => "html" })
+		if searchGoals == 'true'
+			goals = user.goals.where("name like ?", "%#{params[:search_terms]}%")
+		end
+
 		for goal in user.goals
-			logger.info "kurac1"
 			for step in goal.steps.where("name like ?", "%#{params[:search_terms]}%")
-				logger.info "kurac2"
-				if !goals.include?(step.goal)
+				if !goals.include?(step.goal) && searchSteps == 'true'
 					goals.push(step.goal)
 				end
 			end
 			for step in goal.steps
 				for todo in step.to_dos.where("name like ?", "%#{params[:search_terms]}%")
-					logger.info "kurac3"
-					if !goals.include?(todo.step.goal)
+					if !goals.include?(todo.step.goal) && searchToDos == 'true'
 						goals.push(todo.step.goal)
 					end
 				end
+
+				for material in step.resources.where("asset_file_name like ?", "%#{params[:search_terms]}%")
+					if !goals.include?(material.step.goal) && searchResources == 'true'
+						goals.push(material.step.goal)
+					end
+				end
 			end
-			
-
-
 		end
 
 		respond_to do |format|

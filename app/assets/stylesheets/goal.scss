@@ -95,6 +95,15 @@
 	    width: 250px;
 	}
 
+	input[type=checkbox] {
+		width: 20px;
+		margin: 0;
+	}
+
+	span {
+
+	}
+
 	.search {
 		width: 20px;
 		height: 20px;
@@ -184,8 +193,40 @@
 	padding-bottom: 20px;
 	border-bottom: 1px solid #fbfef2;
 
+	&.colapsed {
+		.goal__card__header {
+			display: none;
+		}
+		.goal__card__steps {
+			display: none;
+		}
+		.goal__card__add__new {
+			display: none;
+		}
+	}
+
+	.goal__card__colapsed {
+
+		.goal__card__colapsed__show {
+			cursor: pointer;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+	}
+
 	.goal__card__header {
 		margin-bottom: 30px;
+
+		.goal__card__colapsed__hide {
+			cursor: pointer;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 
 		.goal__card__link {
 			font-size: 24px;

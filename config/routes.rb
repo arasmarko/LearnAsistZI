@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   	get '/admin/deleteUser', :to => 'admin#delete_user', :as => 'admin_delete_user'
 
 	#HOME	
+
 	get '/', :to => 'home#index', :as => 'home'
+	
 	get '/search', :to => 'home#search', :as => 'search'
 	get '/out', :to => 'home#out', :as => 'out'
 

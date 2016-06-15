@@ -1,6 +1,7 @@
 $(document).on('page:ready page:change', function (){
 
 	populateProgressBars();
+
 });
 
 
@@ -171,23 +172,30 @@ $(document).on('click', '.js-remove-todo__from-goal', function (e) {
 		});
 });
 
-
-$(document).on('keyup', '.js-goal_search__input', function (e) {	
-
-});
-
 $(document).on('click', '.js-search', function (e) {	
 	var searchTerms = $('.js-goal_search__input').val();
+	var searchGoals = $('.js-searchGoals').prop("checked");
+	var searchSteps = $('.js-searchSteps').prop("checked");
+	var searchToDos = $('.js-searchToDos').prop("checked");
+	var searchResources = $('.js-searchResources').prop("checked");
 
+	// console.log(searchGoals)
+
+	
 	var inputPlace = $('.goal__content').parent();
 	$('.goal__content').remove();
 
 	$.ajax({
 		type: 'POST',
 		url: '/goal/search',
-		data: {search_terms: searchTerms},
+		data: {
+			search_terms: searchTerms,
+			search_goals: searchGoals,
+			search_steps: searchSteps,
+			search_toDos: searchToDos,
+			search_resources: searchResources
+		},
 		}).success(function(data) {
-			console.log(data.html_content);
 			inputPlace.append(data.html_content);
 			populateProgressBars();
 			
@@ -209,6 +217,26 @@ function populateProgressBars (argument) {
 		});
 	});
 }
+
+function toggleColapseAll (argument) {
+
+	if ($('.goal__card').hasClass('colapsed')) {
+		$('.goal__card').removeClass('colapsed');
+	} else {
+		$('.goal__card').addClass('colapsed');
+	}
+	
+}
+
+$(document).on('click', '.goal__card__colapsed__show', function (e) {
+	$(this).parent().hide();
+	$(this).parent().parent().removeClass('colapsed');
+});
+
+$(document).on('click', '.goal__card__colapsed__hide', function (e) {
+	$(this).parent().parent().children('.goal__card__colapsed').show();
+	$(this).parent().parent().addClass('colapsed');
+});
 
 
 

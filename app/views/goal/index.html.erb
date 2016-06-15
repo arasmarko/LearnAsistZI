@@ -1,8 +1,14 @@
 <div class="page-wrapper">
 	<div class="goal__heading">
 		<h1>List of your goals</h1>
-		<input type="text" class="js-goal_search__input" placeholder="search"><div class="js-search search glyphicon glyphicon-search"></div>
+		<input type="text" class="js-goal_search__input" placeholder="search">
+		<div class="js-search search glyphicon glyphicon-search"></div>
+		<input type="checkbox" class="js-searchGoals" checked="checked"><span>Goals</span>
+		<input type="checkbox" class="js-searchSteps" checked="checked"><span>Steps</span>
+		<input type="checkbox" class="js-searchToDos" checked="checked"><span>ToDos</span>
+		<input type="checkbox" class="js-searchResources" checked="checked"><span>Resources</span>
 		<div class="js-add_goal goal__content_add btn btn-success">Add new goal +</div>
+
 	</div>
 	<%= render :partial => "content" %>
 </div>

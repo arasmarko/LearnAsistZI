@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
   	render :json => { :success => true, :upit => params[:ime] }
   end
   
+  def api_test
+  	
+  	render :json => { :success => true, :upit => 'test' }
+
+  end
+
 end

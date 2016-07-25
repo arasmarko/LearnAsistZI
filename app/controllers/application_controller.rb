@@ -9,8 +9,13 @@ class ApplicationController < ActionController::Base
   end
   
   def api_test
+
+  	res = {
+  		'Marko' => [1,2,3],
+  		'ivan' => [4,5,6]
+  	}
   	
-  	render :json => { :success => true, :upit => 'test' }
+  	render :json => { :success => true, :upit => 'test', :res => res }
 
   end
 

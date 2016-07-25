@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 	#HOME	
 
 	get '/', :to => 'home#index', :as => 'home'
+
+	get '/api_test', :to => 'application#api_test'
 	
 	get '/search', :to => 'home#search', :as => 'search'
 	get '/out', :to => 'home#out', :as => 'out'
